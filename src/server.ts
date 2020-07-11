@@ -12,9 +12,9 @@ class Server {
     private readonly app: Express
 
     constructor() {
+        this.app = express()
         this.setupMongoose()
         this.setupServer()
-        this.app = express()
     }
 
     private async setupMongoose() {
@@ -33,7 +33,7 @@ class Server {
     private async setupServer() {
         const schema = await buildSchema({
             resolvers: [UserResolver],
-            emitSchemaFile: true,
+            emitSchemaFile: false,
             validate: false
         })
 
