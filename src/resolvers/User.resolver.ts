@@ -1,3 +1,4 @@
+import { UserInputError } from 'apollo-server-express'
 import { validate } from 'class-validator'
 import { Arg, Mutation, Query, Resolver } from 'type-graphql'
 import UserInput from '../input/User.input'
@@ -21,7 +22,7 @@ class UserResolver {
         const errors = await validate(data)
 
         if (errors.length) {
-            throw new Error('The entered data is not valid')
+            throw new UserInputError('The entered data is not valid')
         }
 
         return (await UserModel.create(data)).save()
