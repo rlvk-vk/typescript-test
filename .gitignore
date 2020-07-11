@@ -1,2 +1,15 @@
-.idea
+# Production files
+dist
+
+# Environment files
+.env
+
+# Packages
 node_modules
+
+# Misc
+.vscode
+.idea
+
+# Log files
+*.log
